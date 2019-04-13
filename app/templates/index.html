@@ -1,0 +1,21 @@
+{% import 'macros.html' as macro%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% if title %}
+        <title> {{ title }}</title>
+        {% else %}
+        <title> Welcome to daily news center </title>
+        {% endif %}
+    </head>
+    <body>
+        <!-- all_newssection  -->
+        <h3>All  news</h3>
+         <ul>
+            {% for all_news in all %}
+                <li>{{ all_news.title}}</li>
+            {% endfor %}
+        </ul>
+ </body>
+</html>
