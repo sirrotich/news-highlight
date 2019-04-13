@@ -1,21 +1,38 @@
-{% import 'macros.html' as macro%}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to daily news center </title>
-        {% endif %}
-    </head>
-    <body>
-        <!-- all_newssection  -->
-        <h3>All  news</h3>
-         <ul>
-            {% for all_news in all %}
-                <li>{{ all_news.title}}</li>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+{% block content %}
+<h3>Online News Channels</h3>
+<div class="row m-0 p-o">
+        <div class="col-md-8 m-0 p-o">
+<ul>
+    {{ macro.displayNewsSources(sports)}}
+</ul>
+<ul>
+    {{ macro.displayNewsSources(entertainment)}}
+</ul>
+<ul>
+    {{ macro.displayNewsSources(technology)}}
+</ul>
+</div>
+
+<div class="col-md-4 ">
+    <div class="right_coloum floatright">
+        <div class="single_right_coloum">
+            <h2 class="title">Top headlines</h2>
+            <ul>
+                {%for item in headlines %}
+                <div class="single_cat_right_content">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.description|truncate(100)}}</p>
+                    <p class="single_cat_right_content_meta"><a href="#"><span>read more</span></a> 3 hours ago</p>
+                </li>
+            </div>
             {% endfor %}
-        </ul>
- </body>
-</html>
+        </li>
+    </ul>
+    <a class="popular_more" href="#">more</a>
+</div>
+</div>
+</div>
+</div>
+{% endblock %} 
