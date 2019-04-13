@@ -1,25 +1,30 @@
-from flask import render_template
-from app import app
-from .requests import get_news
-
-# Views
-@app.route('/')
+from flask import render_template, request, redirect,url_for
+from . import main
+from ..requests import get_sources, get_source, get_headlines
+@main.route('/')
 def index():
+    
+    sports = get_sources('sports')
+    entertainment = get_sources('entertainment')
+    technology = get_sources('technology')
+    headlines = get_headlines('10')
+    business = get_sources('business')
+    general = get_sources('general')
+    title = 'Newshighlights'
+    return render_template('index.html', title = title, sports =sports, entertainment=entertainment, technology=technology, headlines=headlines, business=business, general=general)
 
-    '''
-    View root page function that returns the index page and its data
-    '''
-    all_news = get_news('all')
-    print(all_news)
-    title = 'Home - Welcome to daily news center'
-    return render_template('index.html', title = title, all = all_news)
+@main.route('/source/<string:id>&<int:page_size>')
+def get_articles(id,page_size):
 
-@app.route('/news/<news_sources>')
-def news(news_sources):
-
-    '''
-    View news page function that returns the news details page and its data
-    '''
-    return render_template('news.html',id = news_sources)
-
-
+    articles = get_source(id,page_size)
+    return render_template('articles.html',articles=articles)
+@main.route('/source')
+def source():
+    
+    sports = get_sources('sports')
+    entertainment = get_sources('entertainment')
+    technology = get_sources('technology')
+    business = get_sources('business')
+    general = get_sources('general')
+    title = 'Newshighlights'
+    return render_template('navbar.html', title = title, sports =sports, entertainment=entertainment, technology=technology,business=business, general=general)
