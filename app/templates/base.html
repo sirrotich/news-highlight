@@ -1,26 +1,12 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+{{super()}}
 
-    <link rel="stylesheet" href="{{url_for('static',filename='css/responsive.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/css/jquery.bxslider.css')}}">
-    <link rel="stylesheet" href="{{url_for('static',filename='css/jquery.bxslider.css')}}">
-    
-    
+<link href="{{url_for('static',filename='css/index.css')}}" rel="stylesheet"> 
 {% endblock %}
 
-<!-- navbar block -->
+
 {% block navbar %}
-    {% include 'navbar.html' %}
+{% include 'nav.html' %}
 {% endblock %}
-<!--content block-->
-{% block scripts %}
-    {{ super() }}
-    <script src="{{url_for('static',filename='js/jquery-min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/selectnav.min.js')}}"></script>
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-  
-    {% endblock %}

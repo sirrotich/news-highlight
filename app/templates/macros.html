@@ -1,7 +1,20 @@
-{% macro displayNewsSources(news_list) %}
+{% macro displayArticles(articles_list) %}
 
-    {% for news in news_list %}
-        <li>{{ news.title}}</li>
+    {% for article in articles_list %}
+        <div class="card">
+            {% if article.urlToImage %}
+                <img class="card-img-top" src="{{ article.urlToImage }}" alt="{{ article.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h4 class="card-title">{{ article.title }}</h4>
+                <p>Source: {{ article.source.name }}</p>
+                <p class="card-text">{{ article.publishedAt }} {% if article.author %}By: {{ article.author }}{% endif %}</p>
+                {% if article.description %}
+                <p class="card-text">{{ article.description }}</p>
+                {% endif %}
+                <p class="text-right"><a href="{{ article.url }}" class="btn btn-outline-primary">Read Full Article</a></p>
+            </div>
+        </div>
     {% endfor %}
 
 {% endmacro %}

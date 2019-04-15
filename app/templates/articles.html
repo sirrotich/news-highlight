@@ -1,20 +1,24 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %} 
 {% block content %}
-{% for article in articles %}
-<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 m-0 p-o">
-  <div class="main_content floatleft">
-    <div class="left_coloum floatleft">
-      <div class="single_left_coloum_wrapper">
-        <h2 class="title">{{article.author}}</h2>
-        <a class="more" href="#">more</a>
-        <div class="single_left_coloum floatleft"> <img src="{{article.urlToImage}}" alt="" />
-          <h3>{{ article.description}}</h3>
-          <p>{{ article.publishedAt|truncate(13)}}</p>
-          <a class="readmore" href="#">read article</a>
-        </div>
-      </div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        {% for article in news %}
+        <div class="col-md-4">
+                <div class="thumbnail">
+                    <div class="details">
+                        <h4>{{article.description | truncate(100)}}</h4>
+                        <a href="{{article.url}}" target="_blank"> Read Full article </a>
+                        <p>Posted on : {{article.publishedAt}}</p>
+                    </div>
+                    <a>
+                    <img src="{{article.image}}" class="img-responsive" styles="height:20px">
+                    </a>
+                    
+                </div>
+            </div>
+        {% endfor %}
     </div>
-  </div>
 </div>
-{%endfor%}
-{% endblock %}
+{% endblock%}

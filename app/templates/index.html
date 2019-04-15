@@ -1,38 +1,113 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro %}
-{% block content %}
-<h3>Online News Channels</h3>
-<div class="row m-0 p-o">
-        <div class="col-md-8 m-0 p-o">
-<ul>
-    {{ macro.displayNewsSources(sports)}}
-</ul>
-<ul>
-    {{ macro.displayNewsSources(entertainment)}}
-</ul>
-<ul>
-    {{ macro.displayNewsSources(technology)}}
-</ul>
-</div>
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
 
-<div class="col-md-4 ">
-    <div class="right_coloum floatright">
-        <div class="single_right_coloum">
-            <h2 class="title">Top headlines</h2>
-            <ul>
-                {%for item in headlines %}
-                <div class="single_cat_right_content">
-                    <h3>{{item.title}}</h3>
-                    <p>{{item.description|truncate(100)}}</p>
-                    <p class="single_cat_right_content_meta"><a href="#"><span>read more</span></a> 3 hours ago</p>
-                </li>
-            </div>
-            {% endfor %}
-        </li>
-    </ul>
-    <a class="popular_more" href="#">more</a>
+{% block content %}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}  
+<div style="background-color: blue;">
+<div class="container-fluid">
+        <div class="row">
+                <h2 style="text-align: center;color: white;"><img src="{{url_for('static',filename='images/logo.jpg')}}" class="logo" alt="" style="height:70px;margin-top:10px;
+                    width: 70px;" />General news </h2><hr>
+                {% for all_news in general %}
+                <div class="col-md-2">
+                        <div class="thumbnail">
+                                <div class="details">
+                                        <h4>{{all_news.name}}</a></h4>
+                                        <p>{{all_news.description | truncate(100)}}</p>
+                                        <p><a href="/articles/{{ all_news.id}}">Read {{all_news.name}} Articles</a></p>
+                                </div>
+                        </div>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+ </div>
 </div>
+ <hr>
+
+<div class="container-fluid">
+        <div class="row">
+                        <h2 style="text-align: center;color:#056b5b;">Business news </h2><hr>
+                        {% for all_news in business %}
+                        <div class="col-md-2">
+                                <div class="thumbnail">
+                                        <div class="details">
+                                                <h4>{{all_news.name}}</h4>
+                                                <p>{{all_news.description | truncate(100)}}</p>
+                                                <p><a href="/articles/{{ all_news.id}}">Read {{all_news.name}} Articles</a></p>
+
+                                        </div>
+
+                                </div>
+                        </div>
+                        {% endfor %}
+        </div>
 </div>
+<hr>
+
+
+<div class="container-fluid">
+         <div class="row">
+                  <h2 style="text-align: center;color:#056b5b;">Sports news </h2><hr>
+                  {% for all_news in sports %}
+                  <div class="col-md-2">
+                          <div class="thumbnail">
+                                  <div class="details">
+                                          <h4>{{all_news.name}}</a></h4>
+                                          <p>{{all_news.description | truncate(100)}}</p>
+                                          <p><a href="/articles/{{ all_news.id}}">Read {{all_news.name}} Articles</a></p>
+                                </div>
+                        </div>
+                </div>
+                         {% endfor %}
+        </div>
 </div>
+<hr>
+
+<div class="container-fluid">
+        <div class="row">
+                <h2 style="text-align: center;color:#056b5b;">Tech news </h2><hr>
+                {% for all_news in technology %}
+                <div class="col-md-2">
+                        <div class="thumbnail">
+                                <div class="details">
+                                        <h4>{{all_news.name}}</a></h4>
+                                        <p>{{all_news.description | truncate(100)}}</p>
+                                        <p><a href="/articles/{{ all_news.id}}">Read {{all_news.name}} Articles</a></p>
+                                </div>
+                        </div>
+                </div>
+        {% endfor %}
+        </div>
 </div>
-{% endblock %} 
+<hr>
+
+      
+                                <h2 style="text-align: center;color:#056b5b;">Science news </h2>
+                                <hr>
+                        {% for all_news in science %}
+                        <div class="col-md-2">
+                                <div class="thumbnail">
+                                        <div class="details">
+                                                <h4>{{all_news.name}}</a></h4>
+                                                <p>{{all_news.description | truncate(100)}}</p>
+                                                <p><a href="/articles/{{ all_news.id}}">Read {{all_news.name}} Articles</a></p>
+                                        </div>
+                                </div>
+                         </div>
+                         {% endfor %}
+                        </div>
+                        </div>
+                        <hr>
+
+
+
+
+
+
+                              
+{%  endblock %}
