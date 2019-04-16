@@ -10,7 +10,7 @@ They are also prompted to use the nav bar
 
 ## To view the live site:
 
- [https://rotichnews.herokuapp.com/]
+ https://rotichnews.herokuapp.com/
 
 ## Technologies used
 
