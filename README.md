@@ -10,7 +10,7 @@ They are also prompted to use the nav bar
 
 ## To view the live site:
 
- [a link ](https://rotichnews.herokuapp.com/)
+ [https://rotichnews.herokuapp.com/]
 
 ## Technologies used
 
@@ -40,4 +40,4 @@ There are no known bugs but incase of any issue let me know through rotictitus12
 
 ## license
 
-This software is LIcensed under MIT license copyright 2019 [a link](SirTitus)
+This software is LIcensed under MIT license copyright 2019 [sirTitus]
