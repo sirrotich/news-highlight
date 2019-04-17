@@ -1,6 +1,7 @@
 ##           News-Highlight
 
-##Desciptions
+
+## Desciptions
 
 news-highlight is a web based application that allows users views informations that are ongoing in the current world according to thier interests.
 
