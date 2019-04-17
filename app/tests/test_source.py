@@ -1,19 +1,23 @@
 import unittest
-from app.models import Source
+from models import Source
 
+class TestSource(unittest.TestCase):
+	'''
+	Test Case to test the behaviour of the Source Model
+	Args:
+		unittest.TestCase - helps in creating Test Cases
+	'''
+	def setUp(self):
+		'''
+		Inbuilt function that runs before each test is executed
+		'''
+		self.new_source = Source('bloomberg','Bloomberg','Bloomberg delivers business and markets news, data, analysis, and video to the world, featuring stories from Businessweek and Bloomberg News.','http://www.bloomberg.com','business')
 
-class SourceTest(unittest.TestCase):
-    """ Test Class to test the behaviour of Source class"""
-
-    def setUp(self):
-        """ Method that runs before every test"""
-
-        pass
-
-    def tearDown(self):
-        """ Method that runs after every test"""
-
-        pass
+	def test_isSouceInstance(self):
+		'''
+		Function to test if the object created in the setup is indeed a Source Object
+		'''
+		self.assertTrue(isinstance(self.new_source,Source))
 
 
 if __name__ == '__main__':
